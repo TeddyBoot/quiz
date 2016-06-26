@@ -1,0 +1,41 @@
+@CHARSET "UTF-8";
+
+header ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+header li {
+	float: left;
+	border-right: 1px solid white;
+}
+
+header li a {
+	display: block;
+	width: 200px;
+	color: white;
+	text-align: center;
+	padding: 10px 10px;
+	text-decoration: none;
+}
+
+/* Change the link color on hover */
+header li a:hover {
+	background-color: #111;
+	color: white;
+}
+
+header .active {
+	background-color: blue;
+	color: white;
+}
+
+
+
+footer {
+	height: 50px;
+	font-size: 70%;
+}

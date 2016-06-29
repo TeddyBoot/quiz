@@ -1,3 +1,3 @@
 <?php
-echo "<h1>" . $G_title . "</h1>";
+echo "<h1>" . $_SESSION['G_title'] . "</h1>";
 ?>

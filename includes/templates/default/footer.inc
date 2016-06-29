@@ -1,3 +1,3 @@
 <?php
-echo $footer;
+echo $_SESSION['G_footer'];
 ?>

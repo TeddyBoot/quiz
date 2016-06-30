@@ -11,22 +11,6 @@
 		<link href="<?php echo $_SESSION['stylesheet']; ?>" rel="stylesheet">
 	</head>
 	<body>
-<?php 
-	if ( isset ( $_SESSION['userName'] ) ) {
-		if ( !isset ($_SESSION['userRole'] ) ) {
-			include 'includes/cnnctdb.inc';
-			$loginName = $_SESSION['userName'];
-			$sql_qry = "SELECT role FROM $userNames WHERE loginname='$loginName'";
-			$result = mysqli_query( $link, $sql_qry );
-			if ( $result ) {
-				$_SESSION['userRole'] = mysql_fetch_object($result);
-			} else {
-				echo mysqli_error( $link );
-			}
-			mysql_close( $link );
-		}
-	}
-?>
 		<header>
 <?php include $_SESSION['templateDir'] . "/header.inc"; ?>
 		</header>

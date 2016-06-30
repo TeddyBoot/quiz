@@ -13,9 +13,15 @@ nav li {
 	border-right: 1px solid white;
 }
 
+nav li:last-child {
+	border-right: none;
+	border-left: 1px solid white;
+	float: right;
+}
+
 nav li a {
 	display: block;
-	width: 200px;
+	width: 150px;
 	color: white;
 	text-align: center;
 	padding: 10px 10px;
@@ -28,12 +34,10 @@ nav li a:hover {
 	color: white;
 }
 
-nav .active {
+nav li a.active {
 	background-color: blue;
 	color: white;
 }
-
-
 
 footer {
 	height: 50px;

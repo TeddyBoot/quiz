@@ -16,7 +16,6 @@ $tableSettings = $tablePrefix . "settings";
 $menuItems = $tablePrefix . "menu";
 $userNames= $tablePrefix . "users";
 
-if ( !isset ($_SESSION['G_title'] )) {
 	include 'includes/cnnctdb.inc';
 	$sql_qry = "SELECT * FROM $tableSettings";
 	$result = mysqli_query( $link, $sql_qry );
@@ -30,7 +29,6 @@ if ( !isset ($_SESSION['G_title'] )) {
 	mysqli_close( $link );
 	
 	/* Directory setup */
-	$_SESSION['templateDir'] = "includes/templates/" . $_SESSION['template'];
+	$_SESSION['templateDir'] = "includes/templates/" . $_SESSION['G_template'];
 	$_SESSION['stylesheet'] = "/" . $_SESSION['G_dir'] . $_SESSION['templateDir'] . "/default.css";
-}
 ?>

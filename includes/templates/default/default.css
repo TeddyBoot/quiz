@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-header ul {
+nav ul {
 	list-style-type: none;
 	margin: 0;
 	padding: 0;
@@ -8,12 +8,12 @@ header ul {
 	background-color: #333;
 }
 
-header li {
+nav li {
 	float: left;
 	border-right: 1px solid white;
 }
 
-header li a {
+nav li a {
 	display: block;
 	width: 200px;
 	color: white;
@@ -23,12 +23,12 @@ header li a {
 }
 
 /* Change the link color on hover */
-header li a:hover {
+nav li a:hover {
 	background-color: #111;
 	color: white;
 }
 
-header .active {
+nav .active {
 	background-color: blue;
 	color: white;
 }

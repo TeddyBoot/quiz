@@ -1,5 +1,22 @@
 @CHARSET "UTF-8";
 
+body {
+	background-color: #bbb;
+}
+
+header {
+	width: 900px;
+	height: 100px;
+	background-color: #888;
+	margin: auto;
+}
+
+nav {
+	width: 900px;
+	height: 40px;
+	margin: auto;
+}
+
 nav ul {
 	list-style-type: none;
 	margin: 0;
@@ -39,7 +56,63 @@ nav li a.active {
 	color: white;
 }
 
+article {
+	width: 900px;
+	margin: auto;
+}
+
+section {
+	background-color: yellow;
+	margin: 0px;
+	padding: 10px 10px 10px 10px;
+	float: right;
+	width: 679px
+}
+
+aside {
+	background-color: grey;
+	float: left;
+	width: 200px;
+	margin: 0;
+	border-right: 1px solid white;
+	height: 500px;
+	position: fixed;
+}
+
+aside ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	background-color: #333;
+}
+
+aside li a {
+	display: block;
+	width: 150px;
+	color: white;
+	text-align: center;
+	padding: 10px 10px;
+	text-decoration: none;
+}
+
+/* Change the link color on hover */
+aside li a:hover {
+	background-color: #111;
+	color: white;
+}
+
+aside li a.active {
+	background-color: blue;
+	color: white;
+}
+
 footer {
-	height: 50px;
+	background-color: green;
+	height: 20px;
 	font-size: 70%;
+	bottom: 0;
+	position: fixed;
+	width: 900px;
+	margin: auto;
 }

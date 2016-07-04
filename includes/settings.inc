@@ -3,9 +3,9 @@
 
 Database variables */
 $sqlServer = "localhost";
-$dbUser = "dbUser";
-$dbUserPwd = "dbUserPwd";
-$dbName = "dbName";
+$dbUser = "root";
+$dbUserPwd = "";
+$dbName = "quizDB";
 $tablePrefix = "quiz_";
 
 /* This part of the file should not be touched. It will retrieve the required variables from
@@ -14,7 +14,7 @@ DO NOT CHANGE ANYTHING AFTER THIS LINE
 Database tables */
 $tableSettings = $tablePrefix . "settings";
 $menuItems = $tablePrefix . "menu";
-$userNames= $tablePrefix . "users";
+$userNames = $tablePrefix . "users";
 
 	include 'includes/cnnctdb.inc';
 	$sql_qry = "SELECT * FROM $tableSettings";

@@ -2,18 +2,17 @@
 <?php
 if (isset ($_GET['page'])) {
 	$page = $_GET ['page'];
-} else {
-	if ( isset ($_POST['loginName'] ) ) {
-		$page = "login";
-	} else {
+	if ($_GET['page'] == "logout") {
 		$page = "home";
 	}
+} else {
+	$page = "home";
 }
 
 include 'includes/cnnctdb.inc';
 switch ($_SESSION['role']) {
 	case 1:
-		$sql_qry = "SELECT * from $menuItems WHERE parent<=1 AND id<100";
+		$sql_qry = "SELECT * from $menuItems WHERE parent<=10 AND id<100 ORDER BY id";
 		$result = mysqli_query( $link, $sql_qry );
 		if ( $result ) {
 			while ( $row = mysqli_fetch_array($result) ) {
@@ -27,6 +26,22 @@ switch ($_SESSION['role']) {
 			} else {
 				echo mysqli_error( $link );
 			}
+		break;
+	case 2:
+		$sql_qry = "SELECT * from $menuItems WHERE parent<=5 AND id<100 ORDER BY id";
+		$result = mysqli_query( $link, $sql_qry );
+		if ( $result ) {
+			while ( $row = mysqli_fetch_array($result) ) {
+				$menuLower = strtolower($row['menu_item']);
+				if ( "$page" == "$menuLower" ) {
+					echo "<li><a class=\"active\" href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>";
+				} else {
+					echo "<li><a href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>";
+				}
+			}
+		} else {
+			echo mysqli_error( $link );
+		}
 		break;
 	default:
 		$sql_qry = "SELECT * FROM $menuItems WHERE parent=0 ORDER BY id";
@@ -43,7 +58,7 @@ switch ($_SESSION['role']) {
 		} else {
 			echo mysqli_error( $link );
 		}
-}
-mysqli_close( $link );
+	}
+	mysqli_close( $link );
 ?>
 </ul>

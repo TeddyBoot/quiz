@@ -1,4 +1,3 @@
-<article>
 <?php
 if ( $page == "users" ) {
 	echo "<aside>";
@@ -13,8 +12,8 @@ if ( $page == "users" ) {
 if ( $page == "contact" ) {
 	echo "<aside>";
 	echo "<ul>";
-	echo "<li><a href=\"index.php?page=contact&action=address\">List users</a></li>";
-	echo "<li><a href=\"index.php?page=contact&action=email\">Add user</a></li>";
+	echo "<li><a href=\"index.php?page=contact&action=address\">Contact info</a></li>";
+	echo "<li><a href=\"index.php?page=contact&action=email\">Send us an email</a></li>";
 	echo "</ul>";
 	echo "</aside>";
 }
@@ -50,7 +49,7 @@ switch ($page) {
 		echo "User Management page<br />";
 		switch ($_GET['action']) {
 			case "list":
-				include 'includes/cnnctdb.inc';
+				include $_SERVER['DOCUMENT_ROOT'] . $appDir . '/includes/cnnctdb.inc';
 				$sqlQuery = "SELECT * FROM $userNames";
 				$result = mysqli_query( $link, $sqlQuery );
 				mysqli_close ($link);
@@ -60,21 +59,26 @@ switch ($page) {
 				break;
 			case "add":
 ?>
-	<form action="adduser.php" method="post">
-		Firstname: <input type="text" name="firstName" required><br />
-		Adjective: <input type="text" name="adjective"><br />
-		Lastname: <input type="text" name="lastName" required><br />
-		Loginname: <input type="text" name="logName" required><br />
-		Password: <input type="password" name="pwd1" required><br />
-		Repeat password: <input type="password" name="pwd2" required><br />
-		<select name="role">
+	<form action="includes/site_admin/adduser.php" method="post">
+		<table cellpadding=1 cellspacing=1 border=0>
+		<tr><td>Firstname</td><td><input type="text" name="firstName" required></td></tr>
+		<tr><td>Adjective</td><td><input type="text" name="adjective"></td></tr>
+		<tr><td>Lastname</td><td><input type="text" name="lastName" required></td></tr>
+		<tr><td>Loginname</td><td><input type="text" name="logName" required></td></tr>
+		<tr><td>Password</td><td><input type="password" name="pass1" id="pass1" required placeholder="Enter password" onkeyup="checkPass(); return false;"></td></tr>
+		<tr><td>Repeat password</td><td><input type="password" name="pass2" id="pass2" required placeholder="Confirm password" onkeyup="checkPass(); return false;"><span id="confirmMessage" class="confirmMessage"></span></td></tr>
+		<tr><td>Role</td><td><select name="role">
 			<option value="1">Admin</option>
 			<option value="2">Super user</option>
 			<option value="3">User</option>
-		</select><br />
-		<input type="submit" value="Login">
+		</select></td></tr>
+		<tr><td colspan=2 align=right><input name="adduser" type="submit" value="Add user"></td></tr>
+		</table>
 	</form>
 <?php
+				break;
+			case "curusr":
+				echo "The current user is " . $_SESSION['login'];
 				break;
 			default:
 				echo "Defalut user page!!";
@@ -85,4 +89,3 @@ switch ($page) {
 }
 ?>
 </section>
-</article>

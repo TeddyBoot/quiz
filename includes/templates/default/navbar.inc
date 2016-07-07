@@ -9,7 +9,7 @@ if (isset ($_GET['page'])) {
 	$page = "home";
 }
 
-include 'includes/cnnctdb.inc';
+include $_SERVER['DOCUMENT_ROOT'] . $appDir  . '/includes/cnnctdb.inc';
 switch ($_SESSION['role']) {
 	case 1:
 		$sql_qry = "SELECT * from $menuItems WHERE parent<=10 AND id<100 ORDER BY id";

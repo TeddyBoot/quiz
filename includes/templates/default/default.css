@@ -9,6 +9,7 @@ header {
 	height: 100px;
 	background-color: #888;
 	margin: auto;
+	text-align: center;
 }
 
 nav {
@@ -61,22 +62,13 @@ article {
 	margin: auto;
 }
 
-section {
-	background-color: yellow;
-	margin: 0px;
-	padding: 10px 10px 10px 10px;
-	float: right;
-	width: 679px
-}
-
 aside {
 	background-color: grey;
 	float: left;
-	width: 200px;
+	width: 170px;
 	margin: 0;
 	border-right: 1px solid white;
-	height: 500px;
-	position: fixed;
+	height: 100%;
 }
 
 aside ul {
@@ -107,12 +99,18 @@ aside li a.active {
 	color: white;
 }
 
+section {
+	background-color: yellow;
+	margin: 0px;
+	padding: 10px 10px 10px 10px;
+	float: left;
+}
+
 footer {
 	background-color: green;
 	height: 20px;
 	font-size: 70%;
-	bottom: 0;
-	position: fixed;
 	width: 900px;
 	margin: auto;
+	clear: both;
 }

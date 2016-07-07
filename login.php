@@ -18,11 +18,12 @@
 			if ( !isset ($resUser['loginname']) ) {
 				$errMsg = "Unknown user";
 			} elseif ( $setPwd == $pwdInDb ) {
-				echo "Login Confirmed";
+				/* echo "Login Confirmed"; */
 				$_SESSION['userName'] = $setName;
 				$_SESSION['role'] = $resUser['role'];
 				$_SESSION['fname'] = $resUser['firstname'];
 				$_SESSION['lname'] = $resUser['adjective'] . " " . $resUser['lastname'];
+				$_SESSION['login'] = $resUser['loginname'];
 			} else {
 				$errMsg = "Incorrect Password";
 			}

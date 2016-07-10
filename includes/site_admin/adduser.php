@@ -3,7 +3,6 @@
 	/*require_once*/
 	require '../settings.inc';
 	if (isset ($_POST['adduser'] ) ) {
-		echo "adding the user";
 		$firstName = $_POST['firstName'];
 		$adj = $_POST['adjective'];
 		$lastName = $_POST['lastName'];
@@ -32,12 +31,12 @@
 				$errMsg = "The query was not executed correctly. Please check the logs for more info.";
 			}
 			mysqli_close ($link);
+			$message = "adding the user. Done!";
 		} else {
-			echo "Something went wrong";
 			echo $errMsg;
 		}
 	} else {
-		echo "You are trying someting that should not be done. Hacking is wrong!";
+		$errMsg = "You are trying someting that should not be done. Hacking is wrong!";
 	}
 	include '../../index.php';
 ?>

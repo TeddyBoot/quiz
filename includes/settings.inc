@@ -3,13 +3,13 @@
 
 Database variables */
 $sqlServer = "localhost";
-$dbUser = "quizDB";
-$dbUserPwd = "Qu1zAdm!";
+$dbUser = "root";
+$dbUserPwd = "";
 $dbName = "quizDB";
 $tablePrefix = "quiz_";
 
 /* Directory for the application to reside in on the webserver */
-$appDir = "/testquiz";
+$appDir = "/quiz";
 
 /* This part of the file should not be touched. It will retrieve the required variables from
 the database and set them so they can be use in this tool

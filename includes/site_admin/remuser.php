@@ -3,15 +3,19 @@ session_start ();
 /*require_once*/
 require '../settings.inc';
 if (isset($_POST['userName'])) {
-	if (isset ($_POST['adduser'] ) ) {
-		$delUsr = $_POST['userName'];
-		include $_SERVER['DOCUMENT_ROOT'] . $appDir . "/includes/cnnctdb.inc";
-		$sql_qry = "DELETE from $userNames WHERE id='$delUsr')";
-		/* include $_SERVER['DOCUMENT_ROOT'] . $appDir . "/index.php"; */
-		if (!mysqli_query( $link, $sql_qry )) {
-			$errMsg = "The query was not executed correctly. Please check the logs for more info.";
+	if (isset ($_POST['removeUser'] ) ) {
+		if ($_POST['userName'] == '1'){
+			$errMsg = "The admin user cannot be removed!";
+		} else {
+			$delUsr = $_POST['userName'];
+			include $_SERVER['DOCUMENT_ROOT'] . $appDir . "/includes/cnnctdb.inc";
+			$sql_qry = "DELETE FROM $userNames WHERE id='$delUsr'";
+			echo $sql_qry;
+			if (!mysqli_query( $link, $sql_qry )) {
+				$errMsg = "The query was not executed correctly. Please check the logs for more info.";
+			}
+			mysqli_close ($link);
 		}
-		mysqli_close ($link);
 	}
 	$message = "Deleting the user. Done!";
 } else {

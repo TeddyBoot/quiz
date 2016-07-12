@@ -1,5 +1,13 @@
 @CHARSET "UTF-8";
 
+.hideRow {
+	display:none;
+}
+
+.topAlign {
+	vertical-align: top;
+}
+
 body {
 	background-color: #bbb;
 }

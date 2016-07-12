@@ -1,34 +1,34 @@
 <?php
 if ( $page == "users" ) {
-	echo "<aside>";
-	echo "<ul>";
-	echo "<li><a href=\"index.php?page=users&action=list\">List users</a></li>";
-	echo "<li><a href=\"index.php?page=users&action=add\">Add user</a></li>";
-	echo "<li><a href=\"index.php?page=users&action=rem\">Remove user</a></li>";
-	echo "</ul>";
-	echo "</aside>";
+	echo "\t\t\t<aside>\n";
+	echo "\t\t\t\t<ul>\n";
+	echo "\t\t\t\t\t<li><a href=\"index.php?page=users&action=list\">List users</a></li>\n";
+	echo "\t\t\t\t\t<li><a href=\"index.php?page=users&action=add\">Add user</a></li>\n";
+	echo "\t\t\t\t\t<li><a href=\"index.php?page=users&action=rem\">Remove user</a></li>\n";
+	echo "\t\t\t\t</ul>\n";
+	echo "\t\t\t</aside>\n";
 }
 
 if ( $page == "contact" ) {
-	echo "<aside>";
-	echo "<ul>";
-	echo "<li><a href=\"index.php?page=contact&action=address\">Contact info</a></li>";
-	echo "<li><a href=\"index.php?page=contact&action=email\">Send us an email</a></li>";
-	echo "</ul>";
-	echo "</aside>";
+	echo "\t\t\t<aside>\n";
+	echo "\t\t\t\t<ul>\n";
+	echo "\t\t\t\t\t<li><a href=\"index.php?page=contact&action=address\">Contact info</a></li>\n";
+	echo "\t\t\t\t\t<li><a href=\"index.php?page=contact&action=email\">Send us an email</a></li>\n";
+	echo "\t\t\t\t</ul>\n";
+	echo "\t\t\t</aside>\n";
 }
 
 if ( $page == "questions" ) {
-	echo "<aside>";
-	echo "<ul>";
-	echo "<li><a href=\"index.php?page=questions&action=list\">List all questions</a></li>";
-	echo "<li><a href=\"index.php?page=questions&action=add\">Add a question</a></li>";
-	echo "<li><a href=\"index.php?page=questions&action=rem\">Remove a question</a></li>";
-	echo "</ul>";
-	echo "</aside>";
+	echo "\t\t\t<aside>\n";
+	echo "\t\t\t\t<ul>\n";
+	echo "\t\t\t\t\t<li><a href=\"index.php?page=questions&action=list\">List all questions</a></li>\n";
+	echo "\t\t\t\t\t<li><a href=\"index.php?page=questions&action=add\">Add a question</a></li>\n";
+	echo "\t\t\t\t\t<li><a href=\"index.php?page=questions&action=rem\">Remove a question</a></li>\n";
+	echo "\t\t\t\t</ul>\n";
+	echo "\t\t\t</aside>\n";
 }
 ?>
-<section>
+			<section>
 <?php
 switch ($page) {
 	case "home":
@@ -47,14 +47,14 @@ switch ($page) {
 	case "contact":
 		echo "Contact page<br />";
 		break;
+	case "questions":
+		include $_SERVER['DOCUMENT_ROOT'] . $appDir . '/includes/pages/question.inc';
+		break;
 	case "users":
 		include $_SERVER['DOCUMENT_ROOT'] . $appDir . '/includes/site_admin/userspage.inc';
 		break;
-	case "questions":
-  include $_SERVER['DOCUMENT_ROOT'] . $appDir . '/includes/site_admin/question.inc';
-	 break;
 	default:
 		echo "Defalut page<br />";
 }
 ?>
-</section>
+			</section>

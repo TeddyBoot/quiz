@@ -1,4 +1,4 @@
-<ul>
+			<ul>
 <?php
 if (isset ($_GET['page'])) {
 	$page = $_GET ['page'];
@@ -18,9 +18,9 @@ switch ($_SESSION['role']) {
 			while ( $row = mysqli_fetch_array($result) ) {
 				$menuLower = strtolower($row['menu_item']);
 				if ( "$page" == "$menuLower" ) {
-					echo "<li><a class=\"active\" href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>";
+					echo "\t\t\t\t<li><a class=\"active\" href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>\n";
 					} else {
-						echo "<li><a href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>";
+						echo "\t\t\t\t<li><a href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>\n";
 					}
 				}
 			} else {
@@ -34,9 +34,9 @@ switch ($_SESSION['role']) {
 			while ( $row = mysqli_fetch_array($result) ) {
 				$menuLower = strtolower($row['menu_item']);
 				if ( "$page" == "$menuLower" ) {
-					echo "<li><a class=\"active\" href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>";
+					echo "\t\t\t\t<li><a class=\"active\" href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>\n";
 				} else {
-					echo "<li><a href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>";
+					echo "\t\t\t\t<li><a href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>\n";
 				}
 			}
 		} else {
@@ -50,9 +50,9 @@ switch ($_SESSION['role']) {
 			while ( $row = mysqli_fetch_array($result) ) {
 				$menuLower = strtolower($row['menu_item']);
 				if ( "$page" == "$menuLower" ) {
-					echo "<li><a class=\"active\" href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>";
+					echo "\t\t\t\t<li><a class=\"active\" href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>\n";
 				} else {
-					echo "<li><a href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>";
+					echo "\t\t\t\t<li><a href=\"/" . $_SESSION['G_dir'] . $row ['link'] . "\">" . $row ['menu_item'] . "</a></li>\n";
 				}
 			}
 		} else {
@@ -61,4 +61,4 @@ switch ($_SESSION['role']) {
 	}
 	mysqli_close( $link );
 ?>
-</ul>
+			</ul>

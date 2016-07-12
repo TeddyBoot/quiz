@@ -3,13 +3,13 @@
 
 Database variables */
 $sqlServer = "localhost";
-$dbUser = "root";
-$dbUserPwd = "";
+$dbUser = "quizDB";
+$dbUserPwd = "Qu1zAdm!";
 $dbName = "quizDB";
 $tablePrefix = "quiz_";
 
 /* Directory for the application to reside in on the webserver */
-$appDir = "/quiz";
+$appDir = "/testquiz";
 
 /* This part of the file should not be touched. It will retrieve the required variables from
 the database and set them so they can be use in this tool
@@ -34,5 +34,6 @@ $userNames = $tablePrefix . "users";
 	/* Directory setup */
 	$_SESSION['templateDir'] = "includes/templates/" . $_SESSION['G_template'];
 	$_SESSION['stylesheet'] = "/" . $_SESSION['G_dir'] . $_SESSION['templateDir'] . "/default.css";
-	$_SESSION['validator'] = "/" . $_SESSION['G_dir'] . "includes/scripts/validator.js"
+	$_SESSION['validator'] = "/" . $_SESSION['G_dir'] . "includes/scripts/validator.js";
+	$_SESSION['form'] = "/" . $_SESSION['G_dir'] . "includes/scripts/form.js";
 ?>

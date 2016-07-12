@@ -10,6 +10,7 @@
 		<title>Create a test/quiz</title>
 		<link href="<?php echo $_SESSION['stylesheet']; ?>" rel="stylesheet">
 		<script type="text/javascript" src="<?php echo $_SESSION['validator']; ?>"></script>
+		<script type="text/javascript" src="<?php echo $_SESSION['form']; ?>"></script>
 	</head>
 	<body>
 		<header>

@@ -19,6 +19,7 @@ $g_TableSettings = $tablePrefix . "settings";
 $g_MenuItems = $tablePrefix . "menu";
 $g_UserNames = $tablePrefix . "users";
 $g_QuizTopics = $tablePrefix . "topics";
+$g_QuizSubjects = $tablePrefix . "subjects";
 $g_QuestTitles = $tablePrefix . "questTitles";
 
 include $_SERVER['DOCUMENT_ROOT'] . $appDir  . '/includes/cnnctdb.inc';

@@ -8,7 +8,7 @@
 		/* echo "Validation of user " . $setName . "<br />";*/
 		$setPwd = $_POST['passwd'];
 		/* echo "passwd set: " . $setPwd . "<br />"; */
-		$sql_qry = "SELECT * FROM $userNames WHERE loginname='$setName'";
+		$sql_qry = "SELECT * FROM $g_UserNames WHERE loginname='$setName'";
 		/* echo $sql_qry . "<br />"; */
 		$result = mysqli_query( $link, $sql_qry );
 		if ( $result ) {

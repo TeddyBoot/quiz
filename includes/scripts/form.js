@@ -1,12 +1,12 @@
-function handleSelection(choice) {
+function handleSelection(choice,variable1,variable2) {
 	//document.getElementById('select').disabled=true;
-	if(choice=='a1') {
-		document.getElementById('a1').style.display='table-row';
-		document.getElementById('a2').style.display='none';
+	if(choice==variable1) {
+		document.getElementById(variable1).style.display='table-row';
+		document.getElementById(variable2).style.display='none';
 	}
 	else {
-		document.getElementById('a2').style.display='table-row';
-		document.getElementById('a1').style.display='none';
+		document.getElementById(variable2).style.display='table-row';
+		document.getElementById(variable1).style.display='none';
 	}
 }
 

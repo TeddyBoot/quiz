@@ -12,7 +12,7 @@ if (isset ($_GET['page'])) {
 include $_SERVER['DOCUMENT_ROOT'] . $appDir  . '/includes/cnnctdb.inc';
 switch ($_SESSION['role']) {
 	case 1:
-		$sql_qry = "SELECT * from $menuItems WHERE parent<=10 AND id<100 ORDER BY id";
+		$sql_qry = "SELECT * from $g_MenuItems WHERE parent<=10 AND id<100 ORDER BY id";
 		$result = mysqli_query( $link, $sql_qry );
 		if ( $result ) {
 			while ( $row = mysqli_fetch_array($result) ) {
@@ -28,7 +28,7 @@ switch ($_SESSION['role']) {
 			}
 		break;
 	case 2:
-		$sql_qry = "SELECT * from $menuItems WHERE parent<=5 AND id<100 ORDER BY id";
+		$sql_qry = "SELECT * from $g_MenuItems WHERE parent<=5 AND id<100 ORDER BY id";
 		$result = mysqli_query( $link, $sql_qry );
 		if ( $result ) {
 			while ( $row = mysqli_fetch_array($result) ) {
@@ -44,7 +44,7 @@ switch ($_SESSION['role']) {
 		}
 		break;
 	default:
-		$sql_qry = "SELECT * FROM $menuItems WHERE parent=0 ORDER BY id";
+		$sql_qry = "SELECT * FROM $g_MenuItems WHERE parent=0 ORDER BY id";
 		$result = mysqli_query( $link, $sql_qry );
 		if ( $result ) {
 			while ( $row = mysqli_fetch_array($result) ) {

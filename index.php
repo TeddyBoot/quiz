@@ -1,7 +1,12 @@
 <?php
-	session_start ();
+	if (!isset($_SESSION)) {
+		session_start ();
+	}
 	/*require_once*/
 	require 'includes/settings.inc';
+	if (!isset($_SESSION['role'])) {
+		$_SESSION['role'] = "3";
+	}
 ?>
 <!DOCTYPE HTML>
 <html>

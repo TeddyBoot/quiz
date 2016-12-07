@@ -3,7 +3,7 @@ echo "User Management page<br />";
 switch ($_GET['action']) {
 	case "list":
 		include $_SERVER['DOCUMENT_ROOT'] . $appDir . '/includes/cnnctdb.inc';
-		$sqlQuery = "SELECT * FROM $userNames";
+		$sqlQuery = "SELECT * FROM $g_UserNames";
 		$result = mysqli_query( $link, $sqlQuery );
 		mysqli_close ($link);
 		while ($row_users = mysqli_fetch_array($result)) {
@@ -37,7 +37,7 @@ switch ($_GET['action']) {
 		<select name="userName">
 <?php
 		include $_SERVER['DOCUMENT_ROOT'] . $appDir . '/includes/cnnctdb.inc';
-		$sqlQuery = "SELECT * FROM $userNames ORDER BY lastname";
+		$sqlQuery = "SELECT * FROM $g_UserNames ORDER BY lastname";
 		$result = mysqli_query( $link, $sqlQuery );
 		mysqli_close ($link);
 		while ($row_users = mysqli_fetch_array($result)) {

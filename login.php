@@ -33,12 +33,7 @@
 		}
 	} elseif (isset($_GET['page'])) {
 		if ($_GET['page'] == "logout") {
-			/* echo "Logging out " .$_SESSION['userName'] . "<br />"; */
-			unset($_SESSION['userName']);
-			unset($_SESSION['role']);
-			unset($_SESSION['fname']);
-			unset($_SESSION['lname']);
-			/* echo "Successful!<br />"; */
+			session_unset();
 		}
 		include 'index.php';
 	}

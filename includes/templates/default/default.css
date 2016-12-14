@@ -1,0 +1,125 @@
+@CHARSET "UTF-8";
+
+.hideRow {
+	display:none;
+}
+
+.topAlign {
+	vertical-align: top;
+}
+
+body {
+	background-color: #bbb;
+}
+
+header {
+	width: 900px;
+	height: 100px;
+	background-color: #888;
+	margin: auto;
+	text-align: center;
+}
+
+nav {
+	width: 900px;
+	height: 40px;
+	margin: auto;
+}
+
+nav ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #333;
+}
+
+nav li {
+	float: left;
+	border-right: 1px solid white;
+}
+
+nav li:last-child {
+	border-right: none;
+	border-left: 1px solid white;
+	float: right;
+}
+
+nav li a {
+	display: block;
+	width: 150px;
+	color: white;
+	text-align: center;
+	padding: 10px 10px;
+	text-decoration: none;
+}
+
+/* Change the link color on hover */
+nav li a:hover {
+	background-color: #111;
+	color: white;
+}
+
+nav li a.active {
+	background-color: blue;
+	color: white;
+}
+
+article {
+	width: 900px;
+	margin: auto;
+}
+
+aside {
+	background-color: grey;
+	float: left;
+	width: 170px;
+	margin: 0;
+	border-right: 1px solid white;
+	height: 100%;
+}
+
+aside ul {
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+	background-color: #333;
+}
+
+aside li a {
+	display: block;
+	width: 150px;
+	color: white;
+	text-align: center;
+	padding: 10px 10px;
+	text-decoration: none;
+}
+
+/* Change the link color on hover */
+aside li a:hover {
+	background-color: #111;
+	color: white;
+}
+
+aside li a.active {
+	background-color: blue;
+	color: white;
+}
+
+section {
+	background-color: yellow;
+	margin: 0px;
+	padding: 10px 10px 10px 10px;
+	width: 709px;
+	float: left;
+}
+
+footer {
+	background-color: green;
+	height: 20px;
+	font-size: 70%;
+	width: 900px;
+	margin: auto;
+	clear: both;
+}

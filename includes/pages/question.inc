@@ -8,29 +8,29 @@ if (isset($_GET['action'])){
 			$result = mysqli_query( $link, $sqlQuery );
 			mysqli_close ($link);
 			while ($row_questTitles = mysqli_fetch_array($result)) {
-				echo "\t\t\t\t\t<li>" . $row_questTitles['title'] . "</li>\n";
+				echo "\t\t\t\t\t<li>" . $row_questTitles['title'] . " (" . $row_questTitles['questions'] . ")</li>\n";
 			}
 			echo "\t\t\t\t</ul>\n";
 			break;
 		case "add":
 			?>
-					<form action="index.php?page=questions&action=add2" method="post">
+					<form name="addquest" id="addquest" action="index.php?page=questions&action=add2" method="post" onSubmit="return checkFromEntries();">
 						<table>
-							<tr><td>Question:</td><td><input type="text" name="quest"></td></tr>
+							<tr><td>Question:</td><td><input type="text" name="quest" required></td></tr>
 							<tr><td>Type of question:</td><td>
-								<select id="select" name="questype" onChange="handleSelection(value,'a1','a2')">
-									<option SELECTED>Choose your type</option>
+								<select id="select" name="questype" onChange="handleSelection(value,'a1','a2')" required>
+									<option value="">Choose your type</option>
 									<option value="a1">open question</option>
 									<option value="a2">multiple choice question</option>
 									<option value="a3">mc or open</option></select></td></tr>
-							<tr class="hideRow" id="a1"><td>Awnser:</td><td><textarea name="answ1">Correct awnser here please</textarea></td></tr>
+							<tr class="hideRow" id="a1"><td>Awnser:</td><td><textarea id="answer1" name="answ1" placeholder="Correct awnser here please"></textarea></td></tr>
 							<tr class="hideRow" id="a2"><td class="topAlign">Awnser2:</td><td><div id="dynamicInput">
-								<textarea name="myInputs[]">Correct awnser here please</textarea><br />
+								<textarea class="answer2" name="myInputs[0]" placeholder="Correct awnser here please"></textarea><br />
 								</div>
 								<input type="button" value="+" onClick="addInput('dynamicInput');">
 								</td></tr>
 							<tr><td>Topic:</td><td>
-								new<input type="radio" name="topicChoice" value="t1" onChange="handleSelection(value,'t1','t2')">
+								new<input type="radio" name="topicChoice" value="t1" onChange="handleSelection(value,'t1','t2')" required>
 								list<input type="radio" name="topicChoice" value="t2" onChange="handleSelection(value,'t1','t2')"></td></tr>
 							<tr class="hideRow" id="t1"><td>Short name:</td><td><input type="text" name="topic1"></td></tr>
 							<tr class="hideRow" id="t2"><td>Select one:</td><td>
@@ -46,30 +46,33 @@ while ($row_quizTopics = mysqli_fetch_array($result)) {
 ?>
 								</select></td></tr>
 							<tr><td>Difficulty:</td><td>
-								<select name="diff">
+								<select name="diff" required>
+									<option value=""></option>
 <?php 
 for ($x = 1; $x <= 5; $x++) {
 	echo "\t\t\t\t\t\t\t\t\t<option value=\"" . $x . "\">" . $x . "</option>\n";
 }
 ?>
 								</select></td></tr>
-							<tr><td>For School:</td><td>yes<input type="radio" name="nonScholar" value="school1" onChange="handleSelection(value,'school1','school2')">no<input type="radio" name="nonScholar" value="school2" onChange="handleSelection(value,'school1','school2')"></td></tr>
+							<tr><td>For School:</td><td>
+								yes<input type="radio" name="nonScholar" value="school1" onChange="handleSelection(value,'school1','school2')" required>
+								no<input type="radio" name="nonScholar" value="school2" onChange="handleSelection(value,'school1','school2')"></td></tr>
 							<tr class="hideRow" id="school1"><td valign="top">School level:</td><td>
-								Vmbo 1<input type="checkbox" name="lv[]" value ="1">
-								Vmbo 2<input type="checkbox" name="lv[]" value ="2">
-								Vmbo 3<input type="checkbox" name="lv[]" value ="3">
-								Vmbo 4<input type="checkbox" name="lv[]" value ="4"><br />
-								Havo 1<input type="checkbox" name="lv[]" value ="5">
-								Havo 2<input type="checkbox" name="lv[]" value ="6">
-								Havo 3<input type="checkbox" name="lv[]" value ="7">
-								Havo 4<input type="checkbox" name="lv[]" value ="8">
-								Havo 5<input type="checkbox" name="lv[]" value ="9"><br />
-								Vwo 1<input type="checkbox" name="lv[]" value ="10">
-								Vwo 2<input type="checkbox" name="lv[]" value ="11">
-								Vwo 3<input type="checkbox" name="lv[]" value ="12">
-								Vwo 4<input type="checkbox" name="lv[]" value ="13">
-								Vwo 5<input type="checkbox" name="lv[]" value ="14">
-								Vwo 6<input type="checkbox" name="lv[]" value ="15"></td></tr>
+								Vmbo 1<input type="checkbox" name="lv[0]" value ="1">
+								Vmbo 2<input type="checkbox" name="lv[1]" value ="2">
+								Vmbo 3<input type="checkbox" name="lv[2]" value ="3">
+								Vmbo 4<input type="checkbox" name="lv[3]" value ="4"><br />
+								Havo 1<input type="checkbox" name="lv[4]" value ="5">
+								Havo 2<input type="checkbox" name="lv[5]" value ="6">
+								Havo 3<input type="checkbox" name="lv[6]" value ="7">
+								Havo 4<input type="checkbox" name="lv[7]" value ="8">
+								Havo 5<input type="checkbox" name="lv[8]" value ="9"><br />
+								Vwo 1<input type="checkbox" name="lv[9]" value ="10">
+								Vwo 2<input type="checkbox" name="lv[10]" value ="11">
+								Vwo 3<input type="checkbox" name="lv[11]" value ="12">
+								Vwo 4<input type="checkbox" name="lv[12]" value ="13">
+								Vwo 5<input type="checkbox" name="lv[13]" value ="14">
+								Vwo 6<input type="checkbox" name="lv[14]" value ="15"></td></tr>
 							<tr class="hideRow" id="school2"><td></td><td></td></tr>
 							<tr><td colspan="2" align="center"><input type="submit" value="Continue"></td></tr>
 						</table>
@@ -80,7 +83,7 @@ for ($x = 1; $x <= 5; $x++) {
 			$_SESSION['setQuest'] = $_POST['quest'];
 			$_SESSION['setQuestType'] = $_POST['questype'];
 			$_SESSION['setDiff'] = $_POST['diff'];
-			if ( $nonScholar == "school1") {
+			if ( $_POST['nonScholar'] == "school1") {
 				$_SESSION['setLevel'] = implode(",", $_POST['lv']);
 			} else {
 				$_SESSION['setLevel'] = "0";
@@ -114,6 +117,7 @@ for ($x = 1; $x <= 5; $x++) {
 			mysqli_close ($link);
 			echo "<pre>";
 			print_r($_SESSION);
+			print_r($_POST);
 			echo "</pre>";
 ?>
 					<form action="index.php?page=questions&action=add3" method="post">

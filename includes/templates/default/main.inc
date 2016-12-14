@@ -21,7 +21,7 @@ if ( $page == "contact" ) {
 if ( $page == "questions" ) {
 	echo "\t\t\t<aside>\n";
 	echo "\t\t\t\t<ul>\n";
-	echo "\t\t\t\t\t<li><a href=\"index.php?page=questions&action=list\">List all questions</a></li>\n";
+	echo "\t\t\t\t\t<li><a href=\"index.php?page=questions&action=list\">List all Titles</a></li>\n";
 	echo "\t\t\t\t\t<li><a href=\"index.php?page=questions&action=add\">Add a question</a></li>\n";
 	echo "\t\t\t\t\t<li><a href=\"index.php?page=questions&action=rem\">Remove a question</a></li>\n";
 	echo "\t\t\t\t</ul>\n";

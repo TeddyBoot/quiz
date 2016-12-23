@@ -18,9 +18,11 @@ Database tables */
 $g_TableSettings = $tablePrefix . "settings";
 $g_MenuItems = $tablePrefix . "menu";
 $g_UserNames = $tablePrefix . "users";
-$g_QuizTopics = $tablePrefix . "topics";
-$g_QuizSubjects = $tablePrefix . "subjects";
+$g_QuizTopics = $tablePrefix . "questTopics";
+$g_QuizSubjects = $tablePrefix . "questSubjects";
 $g_QuestTitles = $tablePrefix . "questTitles";
+$g_QuestPics = $tablePrefix . "questPics";
+$g_QuestAdds = $tablePrefix . "questAdditions";
 
 include $_SERVER['DOCUMENT_ROOT'] . $appDir  . '/includes/cnnctdb.inc';
 $sql_qry = "SELECT * FROM $g_TableSettings";

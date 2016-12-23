@@ -8,14 +8,31 @@ if (isset($_GET['action'])){
 			$result = mysqli_query( $link, $sqlQuery );
 			mysqli_close ($link);
 			while ($row_questTitles = mysqli_fetch_array($result)) {
-				echo "\t\t\t\t\t<li>" . $row_questTitles['title'] . " (" . $row_questTitles['questions'] . ")</li>\n";
+				echo "\t\t\t\t\t<li>" . $row_questTitles['title'] . " (" . $row_questTitles['nrofquests'] . ")</li>\n";
 			}
 			echo "\t\t\t\t</ul>\n";
 			break;
 		case "add":
 			?>
-					<form name="addquest" id="addquest" action="index.php?page=questions&action=add2" method="post" onSubmit="return checkFromEntries();">
+					<form name="addquest" id="addquest" action="index.php?page=questions&action=add2" method="post" onSubmit="return checkFormEntries();">
 						<table>
+							<tr><td>Title:</td><td>
+								new<input type="radio" name="titleChoice" value="tc1" onChange="handleSelection(value,'tc1','tc2')" required>
+								list<input type="radio" name="titleChoice" value="tc2" onChange="handleSelection(value,'tc1','tc2')"></td></tr>
+							<tr class="hideRow" id="tc1"><td>Title name</td><td><input type="text" name="title1"></td></tr>
+							<tr class="hideRow" id="tc2"><td>Title name</td><td>
+								<select name="title2">
+									<option value="">Choose a title</option>
+<?php 
+include $_SERVER['DOCUMENT_ROOT'] . $appDir . '/includes/cnnctdb.inc';
+$sqlQuery = "SELECT * FROM $g_QuizTitles";
+$result = mysqli_query( $link, $sqlQuery );
+mysqli_close ($link);
+while ($row_quizTitles = mysqli_fetch_array($result)) {
+	echo "\t\t\t\t\t\t\t\t\t<option value=\"" . $row_quizTitles['id'] . "\">" . $row_quizTitles['title'] . "</option>\n";
+}
+?>
+								</select></td></tr>
 							<tr><td>Question:</td><td><input type="text" name="quest" required></td></tr>
 							<tr><td>Type of question:</td><td>
 								<select id="select" name="questype" onChange="handleSelection(value,'a1','a2')" required>
@@ -35,6 +52,7 @@ if (isset($_GET['action'])){
 							<tr class="hideRow" id="t1"><td>Short name:</td><td><input type="text" name="topic1"></td></tr>
 							<tr class="hideRow" id="t2"><td>Select one:</td><td>
 								<select name="topic2">
+									<option value="">Choose a topic</option>option>
 <?php 
 include $_SERVER['DOCUMENT_ROOT'] . $appDir . '/includes/cnnctdb.inc';
 $sqlQuery = "SELECT * FROM $g_QuizTopics";
@@ -109,7 +127,7 @@ for ($x = 1; $x <= 5; $x++) {
 				}
 			} else {
 				$_SESSION['setTopic'] = $_POST['topic2'];
-				$sqlQuery4 = "select * from $g_QuizTopics where name='" . $_SESSION['setTopic'] . "'";
+				$sqlQuery4 = "select * from $g_QuizTopics where id='" . $_SESSION['setTopic'] . "'";
 				$result4 = mysqli_query( $link, $sqlQuery4 );
 				$setTopicTmp = mysqli_fetch_array($result4);
 				$_SESSION['setTopicName'] = $setTopicTmp['name'];
@@ -120,7 +138,7 @@ for ($x = 1; $x <= 5; $x++) {
 			print_r($_POST);
 			echo "</pre>";
 ?>
-					<form action="index.php?page=questions&action=add3" method="post">
+					<form name="addquest2" action="index.php?page=questions&action=add3" method="post" onSubmit="return checkFormEntries2();">
 						<table>
 							<tr><td valign="top">
 								Question:</td><td>
@@ -144,11 +162,12 @@ switch ($_SESSION['setQuestType'] ) {
 }
 ?>"><?php echo $typeName; ?></td></tr>
 							<tr><td>Subject:</td><td>
-								new<input type="radio" name="subjectChoice" value="s1" onChange="handleSelection(value,'s1','s2')">
+								new<input type="radio" name="subjectChoice" value="s1" onChange="handleSelection(value,'s1','s2')" required>
 								list<input type="radio" name="subjectChoice" value="s2" onChange="handleSelection(value,'s1','s2')"></td></tr>
 							<tr class="hideRow" id="s1"><td>Subject:</td><td><input type="text" name="subject1"></td></tr>
 							<tr class="hideRow" id="s2"><td>Subject:</td><td>
 								<select name="subject2">
+									<option value="">Choose a subject</option>option>
 <?php 
 include $_SERVER['DOCUMENT_ROOT'] . $appDir . '/includes/cnnctdb.inc';
 $sqlQuery = "SELECT * FROM $g_QuizSubjects where parent='" . $_SESSION['setTopic'] . "'";
@@ -159,6 +178,7 @@ while ($row_quizSubjects = mysqli_fetch_array($result)) {
 }
 ?>
 								</select></td></tr>
+								
 							<tr><td colspan="2" align="center"><input type="submit" value="Invoeren"></td></tr>
 						</table>
 					</form>

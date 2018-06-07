@@ -9,7 +9,7 @@ $dbName = "quiz";
 $tablePrefix = "quiz_";
 
 /* Directory for the application to reside in on the webserver */
-$appDir = "/testquiz";
+$appDir = "";
 
 /* This part of the file should not be touched. It will retrieve the required variables from
 the database and set them so they can be use in this tool

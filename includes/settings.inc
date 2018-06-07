@@ -2,10 +2,10 @@
 /* The first part file contains the changable variables used in this tool
 
 Database variables */
-$sqlServer = "localhost";
-$dbUser = "quizDB";
-$dbUserPwd = "Qu1zAdm!";
-$dbName = "quizDB";
+$sqlServer = "mariadb:3306";
+$dbUser = "mariadb";
+$dbUserPwd = "Mar1aD8";
+$dbName = "quiz";
 $tablePrefix = "quiz_";
 
 /* Directory for the application to reside in on the webserver */

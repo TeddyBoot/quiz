@@ -3,7 +3,7 @@
 
 Database variables */
 $sqlServer = "mariadb:3306";
-$dbUser = "quizuser";
+$dbUser = "quiz";
 $dbUserPwd = "Mar1aD8";
 $dbName = "quiz";
 $tablePrefix = "quiz_";

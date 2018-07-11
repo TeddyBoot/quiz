@@ -2,7 +2,7 @@
 /* The first part file contains the changable variables used in this tool
 
 Database variables */
-$sqlServer = "mariadb:3306";
+$sqlServer = "mysql:3306";
 $dbUser = "quiz";
 $dbUserPwd = "Mar1aD8";
 $dbName = "quiz";
